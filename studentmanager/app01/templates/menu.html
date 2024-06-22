@@ -1,0 +1,94 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单</title>
+</head>
+<style>
+    a {
+        border: 1px solid #ccc;
+        padding: 5px 10px; /* 可选：添加内边距以增加可点击区域 */
+        display: inline-block; /* 可选：使边框应用到链接的整个内容区域 */
+        text-decoration: none; /* 去除默认的下划线 */
+        color: #4CAF50; /* 可选：修改链接文本颜色 */
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    /* 表格样式 */
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+        background-color: #f2f2f2;
+    }
+    
+    /* 整体布局 */
+    .container {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+    }
+
+    /* 侧边栏样式 */
+    .sidebar {
+        width: 200px;
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
+
+    /* 主内容区样式 */
+    .main-content {
+        flex: 1;
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <h2>操作</h2>
+            <div><a href="select_course/">前往选课</a></div>
+            <br>
+            <div><a href="result/">查看选课结果</a></div>
+            <br>
+            <div><a href="/login/">返回登录界面</a></div>
+    </div>
+    <div class="main-content">
+        <h1>学生信息</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>所属学院</th>
+                    <th>入学时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{datalist.id}}</td>
+                    <td>{{datalist.name}}</td>
+                    <td>{{datalist.gender}}</td>
+                    <td>{{academy.academyname}}</td>
+                    <td>{{datalist.entrydate|date:"Y-m-d"}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
