@@ -15,7 +15,7 @@ def login(request):
                 pwd = Student.objects.filter(id = username).first()
                 pwd = pwd.password
                 if password == pwd:
-                    return redirect("/login/menu/")
+                    return redirect("menu/")
         return render(request, 'login.html', {"error" : "用户名或密码错误"})
     
 # 显示菜单
@@ -99,3 +99,11 @@ def modifyresult(request):
                                                   'a1' : flat[0], 'a2' : flat[1], 'a3' : flat[2],
                                                   'a4' : flat[3], 'a5' : flat[4], 'a6' : flat[5], 
                                                   'a7' : flat[6], 'a8' : flat[7], 'a9' : flat[8] })
+
+#新功能
+def jiahao(request):
+    ls = []
+    for i in range(1,32):
+        ls += str(i)
+    img = ls
+    return render(request, 'jiahao.html', {"img":img})
